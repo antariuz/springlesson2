@@ -16,7 +16,7 @@ import javax.persistence.*;
 public class Car extends AbstractIdentifiableEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "driver_id")
+    @JoinColumn(name = "driver")
     private Person driver;
     private String brand;
     private String model;

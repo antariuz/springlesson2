@@ -6,6 +6,8 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Table;
 
 @ToString
@@ -18,6 +20,7 @@ public class Person extends AbstractIdentifiableEntity {
 
     private String name;
     private String surname;
+    @Enumerated(EnumType.STRING)
     private Gender gender;
     private Integer age;
 
