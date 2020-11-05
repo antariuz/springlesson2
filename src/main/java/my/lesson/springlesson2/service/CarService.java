@@ -1,6 +1,6 @@
-package service;
+package my.lesson.springlesson2.service;
 
-import model.Car;
+import my.lesson.springlesson2.model.Car;
 
 import java.util.List;
 

@@ -1,10 +1,10 @@
-package service.impl;
+package my.lesson.springlesson2.service.impl;
 
-import model.Car;
+import my.lesson.springlesson2.model.Car;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.CarRepository;
-import service.CarService;
+import my.lesson.springlesson2.repository.CarRepository;
+import my.lesson.springlesson2.service.CarService;
 
 import java.util.List;
 

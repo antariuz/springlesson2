@@ -1,6 +1,6 @@
-package service;
+package my.lesson.springlesson2.service;
 
-import model.Person;
+import my.lesson.springlesson2.model.Person;
 
 import java.util.List;
 

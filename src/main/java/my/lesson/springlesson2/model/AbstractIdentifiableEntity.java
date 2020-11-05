@@ -1,4 +1,4 @@
-package model;
+package my.lesson.springlesson2.model;
 
 import lombok.Getter;
 

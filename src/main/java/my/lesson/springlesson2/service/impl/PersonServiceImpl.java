@@ -1,10 +1,10 @@
-package service.impl;
+package my.lesson.springlesson2.service.impl;
 
-import model.Person;
+import my.lesson.springlesson2.model.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.PersonRepository;
-import service.PersonService;
+import my.lesson.springlesson2.repository.PersonRepository;
+import my.lesson.springlesson2.service.PersonService;
 
 import java.util.List;
 
