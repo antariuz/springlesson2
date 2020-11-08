@@ -20,11 +20,28 @@ public class PersonController {
         this.personService = personService;
     }
 
+    //GetAllPersons
     @RequestMapping(value = "/persons", //
             method = RequestMethod.GET, //
             produces = {MediaType.APPLICATION_JSON_VALUE})
-    public List<Person> findAll() {
+    public List<Person> getAll() {
         return personService.getAllPerson();
+    }
+
+    //GetAllPersons
+    @RequestMapping(value = "/person", //
+            method = RequestMethod.GET, //
+            produces = {MediaType.APPLICATION_JSON_VALUE})
+    public Person getPersonByID() {
+        return personService.getPersonByID(1L);
+    } //ID ???
+
+    //GetDriverByID
+    @RequestMapping(value = "/driver", //
+            method = RequestMethod.GET, //
+            produces = {MediaType.APPLICATION_JSON_VALUE})
+    public Person getDriverByID() {
+        return getPersonByID();
     }
 
 }
