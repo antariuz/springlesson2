@@ -20,7 +20,7 @@ public class Car extends AbstractIdentifiableEntity {
     private Person driver;
     private String brand;
     private String model;
-    @Column(name = "engine_type")
+    @Column(name = "engine_type") @Enumerated(EnumType.STRING)
     private EngineType engineType;
     @Column(name = "manufactured_year")
     private Integer manufacturedYear;

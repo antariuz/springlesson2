@@ -1,7 +1,7 @@
 package my.lesson.springlesson2.controller;
 
-import my.lesson.springlesson2.model.Person;
-import my.lesson.springlesson2.service.PersonService;
+import my.lesson.springlesson2.model.Car;
+import my.lesson.springlesson2.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,37 +12,37 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class PersonController {
+public class CarController {
 
-    private final PersonService personService;
+    private final CarService carService;
 
     @Autowired
-    public PersonController(PersonService personService) {
-        this.personService = personService;
+    public CarController(CarService carService) {
+        this.carService = carService;
     }
 
     //GetAllPersons
-    @RequestMapping(value = "/persons", //
+    @RequestMapping(value = "/cars", //
             method = RequestMethod.GET, //
             produces = {MediaType.APPLICATION_JSON_VALUE})
-    public List<Person> getAll() {
-        return personService.getAllPerson();
+    public List<Car> getAll() {
+        return carService.getAllCar();
     }
 
-    //GetPerson
-    @RequestMapping(value = "/person{id}", //
+    //GetAllPersons
+    @RequestMapping(value = "/car{id}", //
             method = RequestMethod.GET, //
             produces = {MediaType.APPLICATION_JSON_VALUE})
-    public Person getPersonByID(@PathVariable Long id) {
-        return personService.getPersonByID(id);
+    public Car getPersonByID(@PathVariable Long id) {
+        return carService.getCarByID(id);
     }
 
     //RemovePersonByID
-    @RequestMapping(value = "/removePerson{id}", //
+    @RequestMapping(value = "/removeCar{id}", //
             method = RequestMethod.GET, //
             produces = {MediaType.APPLICATION_JSON_VALUE})
     public void removePersonByID(@PathVariable Long id) {
-        personService.removePersonByID(id);
+        carService.removeCarByID(id);
     }
 
     //addPerson(Person person);

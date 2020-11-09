@@ -1,10 +1,10 @@
 package my.lesson.springlesson2.service.impl;
 
 import my.lesson.springlesson2.model.Person;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import my.lesson.springlesson2.repository.PersonRepository;
 import my.lesson.springlesson2.service.PersonService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -25,7 +25,7 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public Person getPersonByID(Long id) {
-        return personRepository.getOne(id);
+        return personRepository.findById(id).orElse(null);
     }
 
     @Override
@@ -34,9 +34,15 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public void updatePersonByID(Person person, Long id) {
-//        Person existedPerson = personRepository.getOne(id);
-//        existedPerson = personRepository.save(person);
+    public void updatePersonByID(Person person) {
+        Person personFromDB = personRepository.findById(person.getId()).orElse(null);
+        if (personFromDB != null) {
+            personFromDB.setName(person.getName());
+            personFromDB.setSurname(person.getSurname());
+            personFromDB.setGender(person.getGender());
+            personFromDB.setAge(person.getAge());
+            personRepository.save(personFromDB);
+        } else personRepository.save(person);
     }
 
     @Override
@@ -46,7 +52,7 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public Person getDriverByID(Long id) {
-        return getPersonByID(id);
+        return personRepository.findById(id).orElse(null);
     }
 
 }

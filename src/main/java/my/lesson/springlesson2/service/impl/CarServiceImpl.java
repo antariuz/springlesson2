@@ -1,10 +1,10 @@
 package my.lesson.springlesson2.service.impl;
 
 import my.lesson.springlesson2.model.Car;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import my.lesson.springlesson2.repository.CarRepository;
 import my.lesson.springlesson2.service.CarService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -25,7 +25,7 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public Car getCarByID(Long id) {
-        return carRepository.getOne(id);
+        return carRepository.findById(id).orElse(null);
     }
 
     @Override
@@ -34,8 +34,16 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public void updateCarByID(Car car, Long id) {
-
+    public void updateCarByID(Car car) {
+        Car carFromDB = carRepository.findById(car.getId()).orElse(null);
+        if (carFromDB != null) {
+            carFromDB.setBrand(car.getBrand());
+            carFromDB.setModel(car.getModel());
+            carFromDB.setDriver(car.getDriver());
+            carFromDB.setEngineType(car.getEngineType());
+            carFromDB.setManufacturedYear(car.getManufacturedYear());
+            carRepository.save(carFromDB);
+        } else carRepository.save(car);
     }
 
     @Override
