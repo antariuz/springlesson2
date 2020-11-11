@@ -51,4 +51,8 @@ public class CarServiceImpl implements CarService {
         carRepository.deleteById(id);
     }
 
+    public Long getMaxID() {
+       return carRepository.getMaxId();
+    }
+
 }

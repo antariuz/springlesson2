@@ -45,7 +45,13 @@ public class PersonController {
         personService.removePersonByID(id);
     }
 
-    //addPerson(Person person);
+    //GetMaxID
+    @RequestMapping(value = "/personMaxID", //
+            method = RequestMethod.GET, //
+            produces = {MediaType.APPLICATION_JSON_VALUE})
+    public Long getMaxID() {
+        return personService.getMaxID();
+    }
 
     //updatePersonByID(Person person, Long id);
 

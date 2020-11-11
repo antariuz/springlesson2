@@ -55,4 +55,8 @@ public class PersonServiceImpl implements PersonService {
         return personRepository.findById(id).orElse(null);
     }
 
+    public Long getMaxID() {
+        return personRepository.getMaxId();
+    }
+
 }

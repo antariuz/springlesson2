@@ -16,4 +16,6 @@ public interface CarService {
 
     void removeCarByID(Long id);
 
+    Long getMaxID();
+
 }

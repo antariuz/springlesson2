@@ -18,4 +18,6 @@ public interface PersonService {
 
     Person getDriverByID(Long id);
 
+    Long getMaxID();
+
 }

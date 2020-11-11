@@ -45,8 +45,12 @@ public class CarController {
         carService.removeCarByID(id);
     }
 
-    //addPerson(Person person);
-
-    //updatePersonByID(Person person, Long id);
+    //GetMaxID
+    @RequestMapping(value = "/carMaxID", //
+            method = RequestMethod.GET, //
+            produces = {MediaType.APPLICATION_JSON_VALUE})
+    public Long getMaxID() {
+      return carService.getMaxID();
+    }
 
 }
